@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <section>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/add-details/">user</a>
+                        </li>
+
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+
+    <section class="bgr">
+        <div>
+            <div>
+                <div>
+                    <div class="block">
+                        <div class="col-sm-6">Student of College</div>
+                        <!-- <a href="/add-details/">Add</a> -->
+                    </div>
+                    <div class="details">
+                        <table>
+                            <thead >
+
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Bio</th>
+                                    <th>Degree</th>
+                                    <th>Post</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in date %}
+                                <tr>
+                                    <td>{{i.name}}</td>
+                                    <td>{{i.email}}</td>
+                                    <td>{{i.address}}</td>
+                                    <td>{{i.bio}}</td>
+                                    <td>{{i.degree}}</td>
+                                    <td><img src="/media/{{i.dp}}"></td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- add data -->
+    <button class="open-button" onclick="openForm()">Add Data</button>
+
+    <div class="form-popup" id="myForm">
+        <form method="post" action="/" class="form-container" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Add</h1>
+
+            <label for="Name"><b>Name</b></label>
+            <input type="text" name="username" required>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" name="useremail" required>
+
+            <label for="address"><b>Address</b></label>
+            <input type="text" name="useraddress" required>
+
+            <label for="bio"><b>Bio</b></label>
+            <input type="text" name="userbio" required>
+
+            <label for="degree"><b>Degree</b></label>
+            <input type="text" name="userdegree" required>
+
+            <label for="post"><b>Post</b></label>
+            <input type="file" name="userdp" required>
+
+            <button type="submit" class="btn">Save</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="/static/js/index.js"></script>
+
+</body>
+
+</html>
