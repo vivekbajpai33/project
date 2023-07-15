@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="bg">
+    <div>
+      <div>
+          <div class="wd-e">
+              <div>
+                  <div>
+                      <h2 style="text-align: center; color:wheat;">Update Your details {{id}}</h2>
+                  </div>
+                  <div> 
+                      <form method="post" {{id}} >
+                          {% csrf_token %}
+                          <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Name</label>
+                              <input type="text" name="upname" class="form-control" id="exampleInputName" >
+                              <div id="userName" class="form-text"></div>
+                            </div>
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" name="upemail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text"></div>
+                          </div>
+                          
+                          <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Address</label>
+                              <input type="text" name="upaddress" class="form-control" id="exampleInputaddress">
+                              <div id="useraddress" class="form-text"></div>
+                          </div>
+
+                          <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Bio</label>
+                              <input type="text" name="upbio" class="form-control" id="exampleInputbio">
+                              <div id="userbio" class="form-text"></div>
+                            </div>
+
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Degree</label>
+                              <input type="text" name="degree" class="form-control" id="exampleInputdegree">
+                              <div id="userdegree" class="form-text"></div>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Post</label>
+                              <input type="file" name="upimg" class="form-control" id="exampleInputpost">
+                              <div id="userpost" class="form-text"></div>
+                            </div>
+                          
+                          <input  type="submit" value="Update" class="btn btn-primary">
+                          <a href="/" class="btn btn-primary">
+                            Back 
+                          </a>
+                        </form>
+                  </div> 
+              </div>
+          </div>
+      </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+
+
+
+
+
