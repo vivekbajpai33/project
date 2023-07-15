@@ -11,7 +11,7 @@
                       <h2 style="text-align: center; color:wheat;">Update Your details {{id}}</h2>
                   </div>
                   <div> 
-                      <form method="post" {{id}} >
+                      <form method="post" {{id}} enctype="multipart/form-data">
                           {% csrf_token %}
                           <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -43,7 +43,7 @@
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Post</label>
-                              <input type="file" name="upimg" class="form-control" id="exampleInputpost">
+                              <input name="upimg" type="file"  class="form-control" id="exampleInputpost">
                               <div id="userpost" class="form-text"></div>
                             </div>
                           

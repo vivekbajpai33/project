@@ -43,7 +43,7 @@ def update(request,id):
         di.address = request.POST.get('upaddress')
         di.bio = request.POST.get('upbio')
         di.degree = request.POST.get('degree')
-        di.dp = request.FILES.get('post')
+        di.dp = request.FILES.get('upimg')
          
         di.save()
         
